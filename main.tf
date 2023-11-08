@@ -21,4 +21,9 @@ resource "aws_cloudwatch_metric_alarm" "sqs_messages_age" {
   actions_enabled   = "true"
   alarm_actions     = [var.alarm_notification_channel]
   ok_actions        = [var.alarm_notification_channel]
+
+  tags = {
+    developed = "VioletX.com"
+    terraform = "true"
+  }
 }

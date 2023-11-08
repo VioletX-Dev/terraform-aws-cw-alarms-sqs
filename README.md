@@ -1,3 +1,27 @@
+## AWS CloudWatch Alarm of Old Messages on SQS queues
+
+This module creates a CloudWatch alarm for all given SQS queues that has older messages than 10 seconds, if the condiction matches a notification is sent to the informed SNS topic.
+
+### Predefined values
+| Key | Value |
+|------|---------|
+| Comparison operator | Greater Than Or Equal To Threshold |
+| Statistic | Maximum |
+| Threshold | 10 seconds |
+| Evaluation period | 2 seconds |
+
+## Usage:
+
+```
+module "example" {
+    source = "github.com/VioletX-Dev/terraform-aws-cw-alarms-sqs?ref=main"
+
+    alarm_notification_channel = "arn:aws:sns:us-east-1:1234567890:my-sns-notification-channel"
+    sqs_names                  = ["queue_1", "queue_2", "queue_3"]
+
+}
+```
+
 ## Requirements
 
 | Name | Version |
